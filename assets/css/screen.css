@@ -400,10 +400,10 @@ button.gh-form-input {
     grid-column: main;
 }
 
-.kg-width-wide,
+/* .kg-width-wide,
 .kg-content-wide > div {
     grid-column: wide;
-}
+} */
 
 .kg-width-full {
     grid-column: full;
@@ -920,7 +920,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-card-tag {
-    display: none;
+    /* display: none; */
     margin-bottom: 4px;
     font-size: 1.2rem;
     font-weight: 500;
@@ -1365,6 +1365,13 @@ Search                         LOGO                    Login Subscribe
     font-size: calc(clamp(3rem, 1.82vw + 2.27rem, 4.6rem) * var(--factor, 1));
     line-height: 1.1;
     letter-spacing: -0.028em;
+}
+
+.gh-header.is-classic .hero-header-title {
+    font-size: calc(clamp(3rem, 1.82vw + 2.27rem, 4.6rem) * var(--factor, 1));
+    line-height: 2;
+    letter-spacing: -0.028em;
+    text-transform: uppercase;
 }
 
 .gh-header.is-classic.has-image {
@@ -2051,7 +2058,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-article-image {
-    grid-column: wide;
+    /* grid-column: wide; */
     margin-top: 40px;
 }
 
