@@ -80,7 +80,7 @@
 
             {{#match pagination.pages ">" 1}}
                 <div class="gh-more is-title">
-                    <a href="{{@site.url}}/page/2">See all {{> "icons/arrow"}}</a>
+                    <a href="{{@site.url}}/page/2">See more {{> "icons/arrow"}}</a>
                 </div>
             {{/match}}
         </main>
@@ -88,33 +88,28 @@
         {{#if showSidebar}}
             <aside class="gh-sidebar">
                 <div class="gh-sidebar-inner">
-                    <section class="gh-about">
-                        {{#if @site.icon}}
-                            <img class="gh-about-icon" src="{{@site.icon}}" alt="{{@site.title}}" loading="lazy">
-                        {{/if}}
-                        <h3 class="gh-about-title is-title">{{@site.title}}</h3>
-                        {{#if @site.description}}
-                            <p class="gh-about-description is-body">{{@site.description}}</p>
-                        {{/if}}
-                        {{#if @site.members_enabled}}
-                            {{#unless @member}}
-                                <button class="gh-button" data-portal="signup">Subscribe</button>
-                            {{else}}
-                                {{#if @site.paid_members_enabled}}
-                                    {{#unless @member.paid}}
-                                        <button class="gh-button" data-portal="upgrade">Upgrade</button>
-                                    {{/unless}}
-                                {{/if}}
-                            {{/unless}}
-                        {{/if}}
+                    <section class="sidebar-section">
+                        <h2 class="sidebar-section-title">My Cameras</h2>
+                        {{#get "posts" include="authors" filter="tag:camera" limit="3"}}
+                            {{#foreach posts}}
+                                {{> "post-card-sidebar" lazyLoad=true}}
+                            {{/foreach}}
+                        {{/get}}
+                        <div class="sidebar-more">
+                            <a href="{{@site.url}}/tag/camera">See all &rarr;</a>
+                        </div>
                     </section>
-                    {{#if @site.recommendations_enabled}}
-                        <section class="gh-recommendations">
-                            <h4 class="gh-sidebar-title">Recommendations</h4>
-                            {{recommendations}}
-                            <button data-portal="recommendations">See all {{> "icons/arrow"}}</button>
-                        </section>
-                    {{/if}}
+                    <section class="sidebar-section">
+                        <h2 class="sidebar-section-title">Photo Edits</h2>
+                        {{#get "posts" include="authors" filter="tag:photo-edits" limit="3"}}
+                            {{#foreach posts}}
+                                {{> "post-card-sidebar" lazyLoad=true}}
+                            {{/foreach}}
+                        {{/get}}
+                        <div class="sidebar-more">
+                            <a href="{{@site.url}}/tag/photo-edits">See all &rarr;</a>
+                        </div>
+                    </section>
                 </div>
             </aside>
         {{/if}}

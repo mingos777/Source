@@ -1,0 +1,15 @@
+<article class="{{post_class}} no-image sidebar-item">
+    <a class="sidebar-item-link" href="{{url}}">
+        <div class="gh-card-wrapper">
+            <h3 class="sidebar-item-title is-title">{{title}}</h3>
+            {{#if custom_excerpt}}
+                <p class="sidebar-item-excerpt is-body">{{custom_excerpt}}</p>
+            {{/if}}
+            {{#unless custom_excerpt}}
+                {{#if excerpt}}
+                    <p class="sidebar-item-excerpt is-body">{{excerpt}}</p>
+                {{/if}}
+            {{/unless}}
+        </div>
+    </a>
+</article>
